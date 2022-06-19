@@ -1,0 +1,700 @@
+* {
+    /**for all html element**/
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Tajawal', sans-serif;
+}
+
+:root {
+    --ColorBlack:  #111;
+    --ColorWhite:  #fff;
+    --ColorGrayGr1:  #212529;
+    --ColorGrayGr2:  #343a40;
+    --ColorGrayGr3:  #7e7e7e;
+    --ColorGrayGr4:  #adb5bd;
+    --ColorGrayGr5:  #ced4da;
+    --ColorGrayGr6:  #f1f1f1;
+    --primaryColorGr1:  #03045e;
+    --primaryColorGr2:  #023e8a;
+    --primaryColorGr3:  #0077b6;
+    --primaryColorGrT:  #6464e7;
+    --lightColorGrT:    #5078f0;
+    --lightColorGr1:    #0096c7;
+    --lightColorGr2:    #00b4d8;
+    --lightColorGr3:    #48cae4;
+    --lightColorGr4:    #ade8f4;
+
+    --padding: 8%;
+}
+
+p {
+    line-height: 3rem;
+}
+a {
+    text-decoration: none;
+}
+.capitalize { /*___________________________كل_الاحرف_كبيرة*/
+    text-transform: capitalize;
+}
+.uppercase { /*________________________فقط_اول_حرف_كبير*/
+    text-transform: uppercase;
+}
+
+/*___________________________hero-section___________________________*/
+.hero {
+    max-width: 100%;
+    min-height: 100vh;
+}
+/*______navigation_bar*/
+nav {
+    max-width: 80%;
+    height: 5vh;
+    display: flex;
+    padding: 2% var(--padding);
+    justify-content: space-between;
+    align-items: center;
+}
+nav a img {
+    max-width: 22rem;
+    min-width: 11rem;
+    padding-bottom: 0.1rem;
+}
+.navLinks {
+    flex: 1;
+    text-align: center; /**نخلي لنكات الناف على اليمين**/
+}
+.navLinks ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 0.8rem 1.2rem;
+    position: relative;
+}
+.navLinks ul li a {
+    color: var(--primaryColorGr2);
+    font-size: 2rem;
+    transition: 0.7s;  
+}
+.navLinks ul li a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    margin: 0 auto;
+    display: block;
+    background: var(--lightColorGr3);
+    transition: 0.7s;
+}
+.navLinks ul li a:hover::after {
+    width: 99%;
+}
+.navLinks ul li a:hover {
+    color: var(--lightColorGr2);
+}
+nav .fa {
+    display: none;
+}
+/*__________________hero-content*/
+.hero-container {
+    max-width: 100%;
+    height: 87vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.33),rgba(0, 0, 0, 0.33)), /*احلا شي هذه الطبقة الي مثل الظل تكون فوق الصورة*/
+                        url(images/home.png);
+    background-position: center; /**حتى تكون بالسنتر**/
+    background-size: cover;     /**حتى تاخذ الكفر حك حجم البيج**/
+    position: relative;
+}
+.hero-content {
+    color: var(--fontColor2);
+    max-width: 55%;
+    position: absolute;
+    top: 28%;
+    left: 7%;
+}
+.hero-content h1{
+    margin: 2rem;
+    font-size: 400%; /*كبرنا النص 4 اضعاف*/
+    font-weight: 3rem;
+    color: var(--ColorWhite);
+}
+/*___________________________responsive: hero section*/
+@media (max-width: 70rem) {
+    nav {
+        max-width: 96%;
+        padding: 3% var(--padding);
+    }
+    nav a img {
+        max-width: 33%;
+        min-width: 33%;
+    }
+    .navLinks {
+        position: fixed;
+        height: 55vh;
+        width: 33%;
+        top: 0;
+        right: -40rem;
+        text-align: left;
+        z-index: 2;
+        background: var(--ColorGrayGr5);
+        transition: 1s;
+    }
+    .navLinks ul {
+        padding-left: 3rem;
+    }
+    .navLinks ul li {
+        display: block;
+        padding: 1rem;
+    }
+    nav .fa {
+        padding-top: 0.3rem;
+        padding-left: 1rem;
+        padding-bottom: 2rem;
+        display: block;
+        color: #65aad6;
+        margin: 1rem;
+        font-size: 3.3rem;
+        cursor: pointer;
+        transition: 0.7s;
+    }
+    nav .fa-bars {
+        padding: var(--padding);
+    }
+    nav .fa-bars:hover {
+        color: var(--primaryColorGr3);
+        font-size: 3rem;
+    }
+    nav .fa-times:hover {
+        color: #ce5555;
+    }
+    .hero-content h1{
+        font-size: 266%; /*الهدر  كان 400% حولنا --> 333% حتى يكون ريسبونسف وكذا -_- */
+        margin: 2rem;
+        font-weight: 8rem;
+    }
+}
+
+
+/*___________________________about-Basra-Gas-Company___________________________*/
+.about-BGC {
+    max-width: 80%;
+    margin: 0 auto;
+    padding-top: 8rem;
+    padding-bottom: 11rem;
+    justify-content: center;
+}
+.about-row {
+    margin: 0 auto;
+    height: 50vh;
+    display: flex;
+    justify-content: space-between;
+}
+.about-column {
+    flex-basis: 48%;
+    padding: 30px 2px;
+}
+.about-column h1 {
+    color: var(--primaryColorGr3);
+    font-weight: bolder;
+    font-size: 3rem;
+    padding-bottom: 1rem;
+}
+.about-column p {
+    padding: 15px 0 25px;
+    font-size: large;
+}
+.about-column p span {
+    font-weight: bolder;
+}
+.about-row img {
+    padding-top: 4.4rem;
+    padding-left:  2rem;
+}
+/*___________________________responsive: about Basra Gas Company*/
+@media (max-width: 74.27rem) {
+    .about-BGC {
+        max-width: 80%;
+        margin: auto;
+        justify-content: center;
+        padding-bottom: 7rem;
+    }
+    .about-row {
+        margin: 0 auto;
+        height: auto;
+        display: block;
+        justify-content:center;
+    }
+    .about-column {
+        flex-basis: 48%;
+        padding: 22px 2px;
+    }
+    .about-column h1 {
+        padding-bottom: 4rem;
+    }
+    .about-column p {
+        font-size: 1.6rem;
+        padding: 1px 0 2rem;
+    }
+    .about-row img {
+        display: flex;
+        max-width: 100%;
+        padding-top: 0;
+    }
+}
+
+
+/*___________________________some-achievement___________________________*/
+.some-ach {
+    max-width: 90%;
+    margin: auto;
+    text-align: center;
+}
+.some-ach h1 {
+    font-size: 3rem;
+    font-weight: 555;
+    padding-bottom: 1rem;
+    color: var(--primaryColorGrT);
+    transition: 1s;
+}
+.some-ach .h1p {
+    color: var(--ColorGrayGr3);
+    font-size: 1.5rem;
+    font-weight: 444;
+    line-height: 2rem;
+    padding: 1rem;
+    margin-bottom: 3%;
+    transition: 1s;
+}
+.ach-row {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.ach-column {
+    flex-basis: 33%;
+    border-radius: 9rem 0 9rem 0;
+    padding: 11px 0;
+    box-sizing: border-box;
+    margin: 1rem;
+    transition: 0.5s;
+}
+.ach-clm1 {
+    background-color: var(--primaryColorGr2);
+}
+.ach-clm2 {
+    background-color: var(--primaryColorGr3);
+
+}
+.ach-clm3 {
+    background-color: var(--lightColorGr2);
+
+}
+.ach-column:hover {
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.33);
+}
+.ach-column h3 {
+    font-weight: 777;
+    font-size: 2rem;
+    color: #fff;
+    padding: 0.5rem;
+}
+.ach-column p {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 444;
+    line-height: 2rem;
+    padding: 2rem;
+}
+/*___________________________responsive: some achievement*/
+@media (max-width: 60rem) {
+    .some-ach {
+        max-width: 66%;
+    }
+    .some-ach h1 {
+        font-size: 2.5rem;
+        transition: 1s;
+    }
+    .some-ach .h1p {
+        font-size: 1.3rem;
+        transition: 1s;
+    }
+    .ach-row {
+        flex-direction: column;
+    }
+}
+
+
+/*_________________________shaping_energy_________________________*/
+.shaping-energy {
+    max-width: 88%;
+    margin: auto;
+    text-align: center;
+    padding-top: 6rem;
+}
+.shaping-energy h1 {
+    font-size: 2.7rem;
+    font-weight: bolder;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--primaryColorGrT);
+}
+.shaping-row {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-evenly;
+    margin-right: 5%; /*_________________خليت النسبة حتى ارجع الصورتين بالمنتصف وامركزهن لان كانن منزاحات لليمين شوي*/
+}
+.shaping-column {
+    flex-basis: 33%;
+    padding: 22px 0;
+    box-sizing: border-box;
+    margin: 0rem;
+}
+.shaping-column img {
+    width: 122%;
+    border-radius: 1rem;
+}
+.shaping-column p {
+    text-align: left;
+    font-size: 1.7rem;
+    margin-top: 1rem;
+    font-weight: 544;
+}
+.shaping-column a {
+    color: var(--lightColorGr2);
+    transition: 0.5s;
+}
+.shaping-column a:hover {
+    color: var(--primaryColorGr3);
+}
+/*___________________________responsive: shaping energy*/
+@media (max-width: 60rem) {
+    .shaping-row {
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .shaping-energy h1 {
+        font-size: 2.2rem;
+    }
+    .shaping-column img {
+        max-width: 77%;
+        font-weight: 2rem;
+    }
+    .shaping-column p {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+}
+
+
+/*_________________________call_to_action___________________*/
+.call-to-action {
+    max-width: 100%;
+    background-image: linear-gradient(rgba(173, 171, 171, 0.677),rgba(134, 133, 133, 0.827)),url(images/do-bissines-back.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    margin-top: 6rem;
+    padding: 7rem 0;
+}
+.call-to-action h1 {
+    color: var(--ColorWhite);
+    padding-bottom: 4rem;
+    font-weight: 789;
+    font-size: 3rem;
+    transition: 1s;
+}
+.call-to-action a {
+    display: inline-block; /*inline-block: استخدمتها-لان-تسمحلنا-بالتحكم-وتغيير-المارجن-والبادنج-الي-تكون-حول-الألمنت*/
+    color: var(--ColorWhite);
+    border: 2px solid var(--lightColorGr3);
+    padding: 11px 33px;
+    font-size: 15px;
+    background: transparent;/*_شفافة_*/
+    position: relative;
+    transition: 1s;
+}
+.call-to-action a:hover {
+    border-color: transparent;
+    background-color: var(--lightColorGr3);
+}
+/*___________________________responsive: call to action*/
+@media(max-width: 44rem) {
+    .call-to-action h1 {
+        font-size: 2rem;
+        transition: 1s; /*لا-لا-لا-هاي-قوية-: يكون-انميشن-لما-يعمل-ريسبون*/
+    }
+    .call-to-action a {
+        font-size: 11px;
+    }
+}
+
+
+/*___________________________customer_experience___________________________*/
+.customer-exp {
+    max-width: 88%;
+    padding-top: 9rem;
+    margin: auto;
+    text-align: center;
+}
+.customer-exp h1 {
+    color: var(--primaryColorGrT);
+    padding-bottom: 1rem;
+    font-size: 3.3rem;
+    font-weight: 555;
+    transition: 1s;
+}
+.customer-exp .expr-p {
+    margin-top: auto;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--ColorGrayGr3);
+    margin-bottom: -2rem;
+}
+.customer-row {
+    justify-content: space-between;
+    margin-right: auto;
+    display: flex;
+}
+.customer-column {
+    display: flex;
+    padding: 25px;
+    flex-basis: 47%;
+    text-align: left;
+    margin: 5% 1rem;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    background: var(--lightColorGr4);
+}
+.customer-column img {
+    margin: 0 3rem 1rem 2rem;
+    margin-right: 3rem;
+    border-radius: 50%;
+    margin-left: 5px;
+    height: 5rem;
+}
+.customer-column p {
+    color: var(--ColorGrayGr1);
+    padding-left: 1rem;
+    line-height: 2rem;
+    font-size: 1.4rem;
+}
+.customer-img-nam h3{
+    text-align: center;
+    margin-left: -2rem;
+}
+.customer-img-nam i {
+    color: #111198;
+    padding-top: 1rem;
+}
+/*___________________________responsive: customer experience*/
+@media(max-width: 60rem) {
+    .customer-exp {
+        max-width: 70%;
+    }
+    .customer-exp .expr-p {
+        padding-bottom: 3rem;
+    }
+    .customer-row {
+        display: inline-block;
+    }
+    .customer-exp h1 {
+        font-size: 2.8rem;
+        transition: 1s;
+    }
+    .customer-column {
+        margin-right: 0;
+    }
+}
+
+
+/*_____________________________Footer_____________________________*/
+.footer {
+    width: 100%;
+    margin: auto;
+    background-color: var(--ColorGrayGr6);
+}
+.foot-row{
+    display: flex;
+    margin-top: auto;
+    margin: 8% 5% 3% 9%;  /*top..right..bottom..left*/
+}
+.fr {
+    flex-direction: row;
+    display: flex;
+}
+.foot-column {
+    box-sizing: border-box;
+    padding: 5.5rem 2rem 0 3rem;
+}
+.foot-column img {
+    margin-bottom: 2rem;
+    width: 18rem;
+}
+.foot-column p {
+    line-height: 2.2rem;
+    font-size: 1.4rem;
+}
+.foot-column i {
+    color: var(--lightColorGr3);
+    font-size: 2.2rem;
+    margin-right: 2rem;
+    padding-top: 3.3rem;
+}
+.foot-column h1 {
+    color: var(--primaryColorGr3);
+    display: inline-block;
+    font-size: 1.5rem;
+    overflow: hidden;
+    padding: 2rem 0;
+    width: 200%;       /*هنا-حليت-مشكلة-كل-كلمة-من-الهدر-بسطر*/
+}
+.foot-column ul {
+    width: 111%;
+    font-size: 1.33rem;
+    line-height: 2.7rem;
+    padding-right: 8rem;
+    list-style-type: none;
+}
+.footer a {
+    color: var(--lightColorGr1);
+    transition: 0.5s;
+}
+.footer a:hover {
+    color: var(--primaryColorGr2);
+}
+.footer .last-p {
+    text-align: right;
+    font-size: 1.33rem;
+    color: var(--ColorGrayGr3);
+    padding: 0 2rem 1rem 0;
+}
+/*______________________________responsive: Footer*/
+@media(max-width: 87rem) {
+    .foot-row {
+        flex-direction: column;
+    }
+    .foot-row2 {
+        margin-top: -3rem;
+    }
+    @media(max-width: 44rem) {
+        .foot-row1, .foot-row2 {
+            flex-direction: column;
+        }
+        .footer .last-p {
+            font-size: 1rem;
+        }
+    }
+}
+
+
+/*_____________________________ Contact Us Page _____________________________*/
+
+/*___________________hero_contact_us*/
+.hero-contact-us {
+    width: 100%;
+    background-image: linear-gradient(rgba(127, 161, 208, 0.315),rgba(104, 197, 225, 0.434)),url(images/cont\ us.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    padding: 7rem 0;
+}
+.hero-contact-us h1 {
+    color: #fff;
+    font-size: 4.4rem;
+    font-weight: 789;
+    margin-bottom: 0rem;
+    transition: 1s;
+}
+
+/*________________contact-us*/
+.contact-us {
+    width: 80%;
+    margin: auto;
+    padding-top: 7rem;
+}
+.contact-row {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.contact-column {
+    flex-basis: 48%;
+    margin-bottom: 3rem;
+    box-sizing: border-box;
+}
+.contact-column div {
+    display: flex;
+    align-items: center;
+}
+.contact-column div .fa {
+    font-size: 2rem;
+    margin: 1rem;
+    margin-right: 1rem;
+    color: var(--lightColorGr2);
+}
+.contact-column div a {
+    padding: 0;
+    transition: 0.5s;
+    font-size: 1.1rem;
+    color: var(--lightColorGr1);
+}
+.contact-column div a:hover {
+    color: var(--primaryColorGr2);
+}
+.contact-column h1 {
+    font-size: 2.6rem;
+    margin-bottom: 3rem;/***/margin-left: 6px;
+}
+.contact-column input, .contact-column textarea {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem;
+    outline: none;
+    border: 1px solid transparent;
+    background: var(--ColorGrayGr6);
+}
+.btm {
+    padding-left: 0.5rem;/***/padding-top: 1rem;
+}
+.btm button {
+    color: #fff;
+    border: 2px solid transparent;
+    padding: 11px 33px;
+    font-size: 13px;
+    background: var(--lightColorGr1);
+    transition: 1s;
+}
+.btm button:hover {
+    background-color: var(--primaryColorGr3);
+    color: #fff;
+}
+
+/*______________location*/
+.location {
+    width: 100%;
+    margin: auto;
+    padding-top: 8rem;
+    margin-bottom: -12rem;
+    display: inline-block;
+}
+.location iframe {
+    width: 100%;
+}
+/*_____________________________responsive: Contact Us Page*/
+@media(max-width: 44rem) {
+    .hero-contact-us h1 {
+        font-size: 3.3rem;
+        transition: 1s; 
+    }
+    .contact-row {
+        flex-direction: column;
+    }
+    .contact-column h1 {
+        padding-top: 2rem;
+    }
+}
+/*___________________________________________  ;)  ___________________________________________*/
